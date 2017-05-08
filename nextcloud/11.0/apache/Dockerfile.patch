@@ -1,0 +1,8 @@
+1c1
+< FROM php:7.1-apache
+---
+> FROM armhf/php:7.1-apache
+20c20
+<   && docker-php-ext-configure ldap --with-libdir=lib/x86_64-linux-gnu \
+---
+>   && docker-php-ext-configure ldap --with-libdir=lib/arm-linux-gnueabihf \
