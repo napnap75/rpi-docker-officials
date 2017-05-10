@@ -1,4 +1,4 @@
 1c1
 < FROM openjdk:8-jdk-alpine
 ---
-> FROM napnap75/rpi-openjdk-official:8-jdk-alpine
+> FROM armhf/openjdk:8-jdk-alpine
