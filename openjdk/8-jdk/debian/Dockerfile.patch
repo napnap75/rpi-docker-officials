@@ -1,0 +1,4 @@
+7c7
+< FROM buildpack-deps:jessie-scm
+---
+> FROM armhf/buildpack-deps:jessie-scm

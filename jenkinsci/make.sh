@@ -4,10 +4,11 @@ if [ -d docker ] ; then
 fi
 
 mkdir docker
+git clone https://github.com/jenkinsci/docker docker/debian
 git clone -b alpine https://github.com/jenkinsci/docker docker/alpine
 
 for d in * ; do
-  if [[ "$d" != "docker"* ]]; then
+  if [[ "$d" != "docker"* && -d "$d" ]]; then
     make -f $d/Makefile push
   fi
 done

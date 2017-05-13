@@ -1,7 +1,7 @@
 1c1
-< FROM openjdk:8-jdk-alpine
+< FROM openjdk:8-jdk
 ---
-> FROM napnap75/rpi-openjdk-official:8-jdk-alpine
+> FROM napnap75/rpi-openjdk-official:8-jdk
 29c29
 < ENV TINI_SHA 6c41ec7d33e857d4779f14d9c74924cab0c7973485d2972419a3b7c7620ff5fd
 ---
