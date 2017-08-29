@@ -1,0 +1,5 @@
+1c1,2
+< FROM buildpack-deps:jessie-curl
+---
+> FROM arm32v7/buildpack-deps:jessie-curl
+> ADD qemu-arm-static /usr/bin
