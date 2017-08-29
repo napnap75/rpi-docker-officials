@@ -10,7 +10,7 @@ notifications:
     on_success: change
     
 env:
-  - IMAGE=influxdb LABEL=latest
+  - IMAGE=influxdb LABEL=1.3
   
 install:
   - docker run --rm --privileged multiarch/qemu-user-static:register
