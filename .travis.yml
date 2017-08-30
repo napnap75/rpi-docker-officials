@@ -10,7 +10,7 @@ notifications:
     on_success: change
     
 env:
-  - IMAGE=influxdb LABEL=1.3
+  - IMAGE=influxdb LABEL=1.3 VARIANT=alpine
   
 install:
   - docker run --rm --privileged multiarch/qemu-user-static:register
@@ -18,11 +18,11 @@ install:
 script:
 # Build
   - cd ${IMAGE}
-  - ./build.sh ${LABEL}
+  - ./build.sh ${LABEL} ${VARIANT}
     
 after_success:
   - if [ "$TRAVIS_BRANCH" == "master" ]; then
       docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD" ;
-      docker push napnap75/rpi-${IMAGE}:${LABEL} ;
+      if [ "$VARIANT" == "" ]; then docker push napnap75/rpi-${IMAGE}:${LABEL} ; else docker push napnap75/rpi-${IMAGE}:${LABEL}-${VARIANT} ; fi
     fi
     
