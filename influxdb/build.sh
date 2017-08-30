@@ -5,8 +5,13 @@ set -e
 
 # Load the official source and update it for the arm processors
 git clone https://github.com/influxdata/influxdata-docker
-cd influxdata-docker/influxdb/$1
-patch Dockerfile ../../../Dockerfile_influxdb.patch
+if [ "$2" == "" ]; then
+  cd influxdata-docker/influxdb/$1
+  patch Dockerfile ../../../Dockerfile_influxdb.patch
+else
+  cd influxdata-docker/influxdb/$1/$2
+  patch Dockerfile ../../../../Dockerfile_influxdb.patch
+fi
 sed -i.bak 's/amd64/linux_armhf/g' Dockerfile
 cat Dockerfile
 
@@ -15,5 +20,9 @@ curl -L -o qemu-arm-static.tar.gz https://github.com/multiarch/qemu-user-static/
   && tar zx -f qemu-arm-static.tar.gz
 
 # Build the image
-docker build -t napnap75/rpi-influxdb:$1 .
+if [ "$2" == "" ]; then
+  docker build -t napnap75/rpi-influxdb:$1 .
+else
+  docker build -t napnap75/rpi-influxdb:$1-$2 .
+fi
 docker images
