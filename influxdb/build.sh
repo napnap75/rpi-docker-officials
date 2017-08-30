@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# Make sure the script stops after an error
-set -e
+# Make sure the script stops after every error and print the command launched
+set -ex
 
 # Load the official source and update it for the arm processors
 git clone https://github.com/influxdata/influxdata-docker
@@ -12,7 +12,6 @@ else
   cd influxdata-docker/influxdb/$1/$2
   patch Dockerfile ../../../../Dockerfile_influxdb.patch
 fi
-sed -i.bak 's/-static_linux_amd64/_linux_armhf/g' Dockerfile
 cat Dockerfile
 
 # Add QEmu to allow the image to be built and tested on x86 processors (especially Travis CI)
