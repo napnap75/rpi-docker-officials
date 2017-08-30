@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# Make sure the script stops after an error
-set -e
+# Make sure the script stops after every error and print the command launched
+set -ex
 
 # Load the official source and update it for the arm processors
 git clone https://github.com/influxdata/influxdata-docker
