@@ -12,7 +12,7 @@ else
   cd influxdata-docker/influxdb/$1/$2
   patch Dockerfile ../../../../Dockerfile_influxdb.patch
 fi
-sed -i.bak 's/-static_linux_amd64/_linux_armhf/g' Dockerfile
+sed -i.bak 's/_linux_amd64/_linux_armhf/g' Dockerfile
 cat Dockerfile
 
 # Add QEmu to allow the image to be built and tested on x86 processors (especially Travis CI)
