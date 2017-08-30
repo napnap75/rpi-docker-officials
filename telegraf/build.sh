@@ -7,10 +7,10 @@ set -ex
 if [ -d influxdata-docker ] ; then rm -fr influxdata-docker ; fi
 git clone https://github.com/influxdata/influxdata-docker
 if [ "$2" == "" ]; then
-  cd influxdata-docker/influxdb/$1
+  cd influxdata-docker/telegraf/$1
   patch Dockerfile ../../../Dockerfile-$1.patch
 else
-  cd influxdata-docker/influxdb/$1/$2
+  cd influxdata-docker/telegraf/$1/$2
   patch Dockerfile ../../../../Dockerfile-$1-$2.patch
 fi
 cat Dockerfile
@@ -21,8 +21,8 @@ curl -L -o qemu-arm-static.tar.gz https://github.com/multiarch/qemu-user-static/
 
 # Build the image
 if [ "$2" == "" ]; then
-  docker build -t napnap75/rpi-influxdb:$1 .
+  docker build -t napnap75/rpi-telegraf:$1 .
 else
-  docker build -t napnap75/rpi-influxdb:$1-$2 .
+  docker build -t napnap75/rpi-telegraf:$1-$2 .
 fi
 docker images
