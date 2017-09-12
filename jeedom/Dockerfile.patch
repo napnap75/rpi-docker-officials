@@ -1,0 +1,9 @@
+--- Dockerfile.amd64
++++ Dockerfile.arm
+@@ -1,4 +1,5 @@
+-FROM debian:latest
++FROM arm32v7/debian:latest
++ADD qemu-arm-static /usr/bin
+ 
+ MAINTAINER info@jeedom.com
+ 
