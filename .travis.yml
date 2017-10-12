@@ -28,13 +28,13 @@ script:
 after_success:
   - if [ "$TRAVIS_BRANCH" == "master" ]; then
       docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD" ;
-      IMAGE_NAME=
+      IMAGE_NAME= ;
       if [ "$VARIANT" == "" ]; then IMAGE_NAME="rpi-${IMAGE}:${VERSION}" ; else IMAGE_NAME="rpi-${IMAGE}:${VERSION}-${VARIANT}" ; fi ;
       docker push napnap75/${IMAGE_NAME} ;
       if [ "$LATEST" == "true" ]; then
         docker tag napnap75/${IMAGE_NAME} napnap75/rpi-${IMAGE}:latest ;
         docker push napnap75/rpi-${IMAGE}:latest ;
-      fi
+      fi ;
       VERSION_FULL=$(docker run --rm napnap75/${IMAGE_NAME} env | grep $(tr '[a-z]' '[A-Z]' <<< ${IMAGE})_VERSION | egrep -o "[0-9\.]+") ;
       if [ "$VERSION_FULL" != "" ]; then
         if [ "$VARIANT" == "" ]; then 
@@ -44,5 +44,5 @@ after_success:
           docker tag napnap75/${IMAGE_NAME} napnap75/rpi-${IMAGE}:${VERSION_FULL}-${VARIANT} ;
           docker push napnap75/rpi-${IMAGE}:${VERSION_FULL}-${VARIANT} ;
         fi ;
-      fi
+      fi ;
     fi
