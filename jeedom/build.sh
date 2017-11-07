@@ -3,7 +3,7 @@
 # Make sure the script stops after every error and print the command launched
 set -ex
 
-if [ "$1" == "" ]; then
+if [ "$1" == "latest" ]; then
   # Load the official source and update it for the arm processors
   if [ -d core ] ; then rm -fr core ; fi
   git clone https://github.com/jeedom/core
