@@ -3,7 +3,7 @@
 # Make sure the script stops after every error and print the command launched
 set -ex
 
-if [ "$2" == "" ]; then
+if [ "$1" == "" ]; then
   # Load the official source and update it for the arm processors
   if [ -d core ] ; then rm -fr core ; fi
   git clone https://github.com/jeedom/core
@@ -17,7 +17,7 @@ if [ "$2" == "" ]; then
 
   # Build the image
   docker build -t napnap75/rpi-jeedom:latest .
-elif [ "$2" == "openzwave" ]; then
+elif [ "$1" == "openzwave" ]; then
   cd openzwave
   
   # Build the image
