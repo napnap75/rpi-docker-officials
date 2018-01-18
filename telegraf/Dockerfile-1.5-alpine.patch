@@ -1,0 +1,9 @@
+--- Dockerfile.amd64
++++ Dockerfile.arm
+@@ -1,4 +1,5 @@
+-FROM alpine:3.6
++FROM arm32v6/alpine:3.6
++ADD qemu-arm-static /usr/bin
+ 
+ RUN echo 'hosts: files dns' >> /etc/nsswitch.conf
+ RUN apk add --no-cache iputils ca-certificates net-snmp-tools procps && \
