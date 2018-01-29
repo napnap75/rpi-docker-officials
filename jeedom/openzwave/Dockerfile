@@ -2,7 +2,7 @@ FROM napnap75/rpi-jeedom:latest
 
 # Install the prerequisites for OpenZWave
 RUN cd /tmp \
-  && wget -q https://github.com/jeedom/plugin-openzwave/archive/stable.zip \
+  && wget -q https://github.com/jeedom/plugin-openzwave/archive/3.1.zip \
   && unzip -q stable.zip \
   && cd plugin-openzwave-stable/resources \
   && chmod 755 install_apt.sh \
