@@ -16,6 +16,7 @@ env:
   - IMAGE=kapacitor VERSION=1.4 VARIANT=alpine LATEST=true
   - IMAGE=jeedom VERSION=latest
   - IMAGE=jeedom VERSION=openzwave
+  - IMAGE=jeedom VERSION=mqtt
   
 install:
   - docker run --rm --privileged multiarch/qemu-user-static:register
