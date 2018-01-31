@@ -17,6 +17,7 @@ env:
   - IMAGE=jeedom VERSION=latest
   - IMAGE=jeedom VERSION=openzwave
   - IMAGE=jeedom VERSION=mqtt
+  - IMAGE=jeedom VERSION=ozw-mqtt
   
 install:
   - docker run --rm --privileged multiarch/qemu-user-static:register
