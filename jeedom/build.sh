@@ -17,11 +17,11 @@ if [ "$1" == "latest" ]; then
 
   # Build the image
   docker build -t napnap75/rpi-jeedom:latest .
-elif [ "$1" == "openzwave" ]; then
-  cd openzwave
+else
+  cd $1
   
   # Build the image
-  docker build -t napnap75/rpi-jeedom:openzwave .
+  docker build -t napnap75/rpi-jeedom:$1 .
 fi
 
 docker images
