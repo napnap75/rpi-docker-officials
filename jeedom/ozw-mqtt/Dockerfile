@@ -9,6 +9,7 @@ RUN apt-get install -y libmosquitto-dev \
   && ./configure \
   && make \
   && make install \
+  && echo 'extension=mosquitto.so' | tee -a /etc/php/7.0/apache2/php.ini \
   && rm -fr /tmp/Mosquitto-PHP \
 
 # Install the prerequisites for OpenZWave
