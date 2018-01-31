@@ -1,7 +1,7 @@
 FROM napnap75/rpi-jeedom:latest
 
 # Install the prerequisites for MQTT
-RUN apt-get install -y libmosquitto-devel \
+RUN apt-get install -y libmosquitto-dev \
   && cd /tmp \
   && git clone https://github.com/mgdm/Mosquitto-PHP \
   && cd Mosquitto-PHP \
