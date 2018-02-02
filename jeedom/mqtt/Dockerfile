@@ -11,7 +11,7 @@ RUN apt-get install -y mosquitto mosquitto-clients libmosquitto-dev \
 #  && make install \
 #  && echo 'extension=mosquitto.so' | tee -a /etc/php/7.0/apache2/php.ini \
 #  && rm -fr /tmp/Mosquitto-PHP
-  && pecl install Mosquitto \
+  && pecl install Mosquitto-beta \
   && echo "extension=mosquitto.so" > /etc/php/7.0/mods-available/mosquitto.ini \
   && phpenmode mosquitto
   
