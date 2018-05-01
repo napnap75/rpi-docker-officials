@@ -10,6 +10,10 @@ if [ "$1" == "latest" ]; then
   cd core
   patch Dockerfile ../Dockerfile.patch
   cat Dockerfile
+  
+  # Workaround for the bug introduced on April 8th
+  echo "[program:apache2]" >> install/OS_specific/Docker/supervisord.conf
+  echo "command=/bin/bash -c \"rm -f /var/run/apache2/apache2.pid; source /etc/apache2/envvars && exec /usr/sbin/apache2 -DFOREGROUND\""  >> install/OS_specific/Docker/supervisord.conf
 
   # Add QEmu to allow the image to be built and tested on x86 processors (especially Travis CI)
   curl -L -o qemu-arm-static.tar.gz https://github.com/multiarch/qemu-user-static/releases/download/v2.6.0/qemu-arm-static.tar.gz \
