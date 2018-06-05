@@ -6,7 +6,7 @@ set -ex
 if [ "$1" == "latest" ]; then
   # Load the official source and update it for the arm processors
   if [ -d core ] ; then rm -fr core ; fi
-  while [ "$DOWNLOAD_URL" == "" ] ; do DOWNLOAD_URL=$(curl -s https://api.github.com/repos/jeedom/core/releases/latest | grep "tarball_url" | cut -d\" -f4).tar.gz ; done
+  while [ "$DOWNLOAD_URL" == "" ] ; do DOWNLOAD_URL=$(curl -s https://api.github.com/repos/jeedom/core/releases/latest | grep "tarball_url" | cut -d\" -f4) ; done
   curl --retry 3 -L -s -o jeedom.tar.gz $DOWNLOAD_URL
   tar xzf jeedom.tar.gz
   cd core-*
