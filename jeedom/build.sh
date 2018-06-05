@@ -9,7 +9,7 @@ if [ "$1" == "latest" ]; then
   while [ "$DOWNLOAD_URL" == "" ] ; do DOWNLOAD_URL=$(curl -s https://api.github.com/repos/jeedom/core/releases/latest | grep "tarball_url" | cut -d\" -f4) ; done
   curl --retry 3 -L -s -o jeedom.tar.gz $DOWNLOAD_URL
   tar xzf jeedom.tar.gz
-  cd core-*
+  cd jeedom-core-*
   patch Dockerfile ../Dockerfile.patch
   cat Dockerfile
 
