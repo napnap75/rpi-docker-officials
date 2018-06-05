@@ -6,7 +6,7 @@ set -ex
 if [ "$1" == "latest" ]; then
   # Load the official source and update it for the arm processors
   if [ -d core ] ; then rm -fr core ; fi
-  git clone https://github.com/jeedom/core
+  git clone -b stable https://github.com/jeedom/core
   cd core
   patch Dockerfile ../Dockerfile.patch
   cat Dockerfile
