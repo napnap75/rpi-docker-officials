@@ -11,8 +11,8 @@ notifications:
     
 env:
   - IMAGE=influxdb VERSION=1.6 VARIANT=alpine LATEST=true
-  - IMAGE=telegraf VERSION=1.7 VARIANT=alpine LATEST=true
-  - IMAGE=chronograf VERSION=1.5 VARIANT=alpine LATEST=true
+  - IMAGE=telegraf VERSION=1.8 VARIANT=alpine LATEST=true
+  - IMAGE=chronograf VERSION=1.6 VARIANT=alpine LATEST=true
   - IMAGE=kapacitor VERSION=1.5 VARIANT=alpine LATEST=true
   - IMAGE=jeedom VERSION=latest
   - IMAGE=jeedom VERSION=openzwave
