@@ -6,7 +6,7 @@
 +ADD qemu-arm-static /usr/bin
  
  RUN echo 'hosts: files dns' >> /etc/nsswitch.conf
- RUN apk add --no-cache iputils ca-certificates net-snmp-tools procps lm_sensors && \
+ RUN apk add --no-cache iputils ca-certificates net-snmp-tools procps lm_sensors tzdata && \
 @@ -9,21 +10,12 @@
  RUN set -ex && \
 -    apk add --no-cache --virtual .build-deps wget gnupg tar && \
