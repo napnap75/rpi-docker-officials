@@ -14,11 +14,7 @@ env:
   - IMAGE=telegraf VERSION=1.12 VARIANT=alpine LATEST=true
   - IMAGE=chronograf VERSION=1.7 VARIANT=alpine LATEST=true
   - IMAGE=kapacitor VERSION=1.5 VARIANT=alpine LATEST=true
-  - IMAGE=jeedom VERSION=latest
-  - IMAGE=jeedom VERSION=openzwave
-  - IMAGE=jeedom VERSION=mqtt
-  - IMAGE=jeedom VERSION=ozw-mqtt
-  
+
 install:
   - docker run --rm --privileged multiarch/qemu-user-static:register
   
