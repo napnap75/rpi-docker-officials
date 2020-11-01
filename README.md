@@ -1,2 +1,1 @@
-# rpi-docker-officials
-Clones of the official docker images for the Raspberry Pi
+Archived since the official images are now multi-arch 
